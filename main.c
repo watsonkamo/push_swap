@@ -174,7 +174,6 @@ int check_duplicate(t_data *data)
 int main(int argc, char **argv)
 {
 	t_data    *data;
-
 	if (argc < 2)
 		return (0);
 	data = data_init(); // malloc struct and put NULL to a and b 
@@ -189,15 +188,15 @@ int main(int argc, char **argv)
 	}
 	if (check_duplicate(data)) // ./push_swap "1 1 2" とかはエラー
 		return (error_exit(data)); // error は終了ステータスを1にする
-	// sort(data);
+	//ここまでセグフォしないのでおk
+	sort(data);//←こいつがセグフォしてる
+	//debag用　printf("%s\n", "ok");
 	check_stack(data);
 	free_data(data);
 	return (0);
 }
 
-#ifdef DEBUG
-__attribute__((destructor)) static void destructor(void)
-{
-    system("leaks -q push_swap");
-}
-#endif
+// __attribute__((destructor)) static void destructor(void)
+// {
+//     system("leaks -q push_swap");
+// }

@@ -36,12 +36,19 @@ void pa(t_stack *stackA, t_stack *stackB)
 
     if (stackB->size < 1)
         return;
-
-    for (i = stackA->size; i > 0; i--)
+    i = stackA->size;
+    while (i > 0)
+    {
         stackA->data[i] = stackA->data[i - 1];
+        i--;
+    }
     stackA->data[0] = stackB->data[0];
-    for (i = 0; i < stackB->size - 1; i++)
+    i = 0;
+    while (i < stackB->size - 1)
+    {
         stackB->data[i] = stackB->data[i + 1];
+        i++;
+    }
     stackA->size += 1;
     stackB->size -= 1;
 }
@@ -52,12 +59,19 @@ void pb(t_stack *stackA, t_stack *stackB)
 
     if (stackA->size < 1)
         return;
-
-    for (i = stackB->size; i > 0; i--)
+    i = stackB->size; 
+    while (i > 0)
+    {
         stackB->data[i] = stackB->data[i - 1];
+        i--;
+    }
     stackB->data[0] = stackA->data[0];
-    for (i = 0; i < stackA->size - 1; i++)
+    i = 0;
+    while (i < stackA->size - 1)
+    {
         stackA->data[i] = stackA->data[i + 1];
+        i++;
+    }
     stackB->size += 1;
     stackA->size -= 1;
 }
@@ -71,8 +85,12 @@ void ra(t_stack *stackA)
         return;
 
     temp = stackA->data[0];
-    for (i = 0; i < stackA->size - 1; i++)
+    i = 0;
+    while (i < stackA->size - 1)
+    {
         stackA->data[i] = stackA->data[i + 1];
+        i++;
+    }
     stackA->data[stackA->size - 1] = temp;
 }
 
@@ -85,8 +103,12 @@ void rb(t_stack *stackB)
         return;
 
     temp = stackB->data[0];
-    for (i = 0; i < stackB->size - 1; i++)
+    i = 0;
+    while (i < stackB->size - 1)
+    {
         stackB->data[i] = stackB->data[i + 1];
+        i++;
+    }
     stackB->data[stackB->size - 1] = temp;
 }
 
@@ -104,8 +126,12 @@ void rra(t_stack *stackA)
     if (stackA->size < 2)
         return;
     temp = stackA->data[stackA->size - 1];
-    for (i = stackA->size - 1; i > 0; i--)
+    i = stackA->size - 1;
+    while (i > 0)
+    {
         stackA->data[i] = stackA->data[i - 1];
+        i--;
+    }
     stackA->data[0] = temp;
 }
 
@@ -117,8 +143,12 @@ void rrb(t_stack *stackB)
     if (stackB->size < 2)
         return;
     temp = stackB->data[stackB->size - 1];
-    for (i = stackB->size - 1; i > 0; i--)
+    i = stackB->size - 1;
+    while (i > 0)
+    {
         stackB->data[i] = stackB->data[i - 1];
+        i--;
+    }
     stackB->data[0] = temp;
 }
 
