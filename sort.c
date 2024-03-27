@@ -2,7 +2,7 @@
 
 void sort_2(t_data *data)
 {
-	sa(data->a);
+	sa(data);
 }
 
 void sort_3(t_data *data)
@@ -19,17 +19,17 @@ void sort_3(t_data *data)
 	else if (a < c && c < b)
 		rra(data->a);
 	else if (b < a && a < c)
-		sa(data->a);
+		sa(data);
 	else if (b < c && c < a)
 	{
-		sa(data->a);
+		sa(data);
 		ra(data->a);
 	}
 	else if (c < a && a < b)
 		rra(data->a);
 	else
 	{
-		sa(data->a);
+		sa(data);
 		rra(data->a);
 	}
 }
@@ -42,14 +42,17 @@ printf("%s\n", "check_sort_4-1");
 	min = find_min(data->a);
 	max = find_max(data->a);
 	while (data->a->compress_num != min && data->a->compress_num != max)
+	{
+		printf("%s\n", "check_sort_4-2");
 		ra(data->a);
+	}
 	if (data->a->compress_num == max)
-		sa(data->a);
+		sa(data);
 	pb(data->a, data->b);
 	sort_3(data);//ここまでおk
 	pa(data->a, data->b);//こいつがセグフォしてる。pa,pbあたりの引数の渡し方に問題がありそう
-	printf("%s\n", "check_sort_4-2");
 }
+
 
 
 void sort_5(t_data *data)
@@ -62,10 +65,9 @@ void sort_5(t_data *data)
 	while (data->a->compress_num != min && data->a->compress_num != max)
 		ra(data->a);
 	if (data->a->compress_num == max)
-		sa(data->a);
+		sa(data);
 	pb(data->a, data->b);
 	sort_4(data);//こいつがセグフォしてるというかsort4がセグフォなのでそこを直す
-	//printf("%s\n", "check_sort_5");
 	pa(data->a, data->b);
 }
 
@@ -91,7 +93,6 @@ void sort_large(t_data *data)
 void sort(t_data *data)
 {
 	int    len;
-printf("%s", "test");
 	len = stack_len(data->a);
 	if (len == 2)
 		sort_2(data);
@@ -252,3 +253,4 @@ void sort_large_500(t_data *data)
 		i++;
 	}
 }
+

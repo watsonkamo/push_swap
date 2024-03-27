@@ -1,49 +1,86 @@
 #include "push_swap.h"
 
-void sa(t_stack *stackA)
+void    format_data(t_data *data)
 {
-    int temp;
-
-    if (stackA->size < 2)
-        return;
-
-    temp = stackA->data[0];
-    stackA->data[0] = stackA->data[1];
-    stackA->data[1] = temp;
+    if (data == NULL)
+        return ;
+    if (data->a != NULL)
+        while (data->a->prev)
+            data->a = data->a->prev;
+    if (data->b != NULL)
+        while (data->b->prev)
+            data->b = data->b->prev;
 }
 
-void sb(t_stack *stackB)
+void sa(t_data *data)
 {
-    int temp;
+    t_stack *stackA;
+    t_stack *tmp;
 
-    if (stackB->size < 2)
-        return;
-
-    temp = stackB->data[0];
-    stackB->data[0] = stackB->data[1];
-    stackB->data[1] = temp;
+    stackA = data->a;
+    if (stackA == NULL)
+        return ;
+    if (stack_len((stackA)) < 2)
+        return ;
+    tmp = stackA->next;
+    stackA->next = tmp->next;
+    tmp->next = stackA;
+    tmp->prev = NULL;
+    stackA->prev = tmp;
+    if (tmp->next != NULL)
+        tmp->next->prev = tmp;
+    format_data(data);
 }
 
-void ss(t_stack *stackA, t_stack *stackB)
+void sb(t_data *data)
 {
-    sa(stackA);
-    sb(stackB);
+    t_stack *stackB;
+    t_stack *tmp;
+
+    stackB = data->b;
+    if (stackB == NULL)
+        return ;
+    if (stack_len((stackB)) < 2)
+        return ;
+    tmp = stackB->next;
+    stackB->next = tmp->next;
+    tmp->next = stackB;
+    tmp->prev = NULL;
+    stackB->prev = tmp;
+    if (tmp->next != NULL)
+        tmp->next->prev = tmp;
+    format_data(data);
+}
+
+void ss(t_data *data)
+{
+    sa(data);
+    sb(data);
 }
 
 void pa(t_stack *stackA, t_stack *stackB)
 {
-    int i;
-
+    if (stackA == NULL || stackB == NULL) // NULLポインタチェック
+        return;
+    
     if (stackB->size < 1)
         return;
-    i = stackA->size;
-    while (i > 0)
-    {
-        stackA->data[i] = stackA->data[i - 1];
-        i--;
+
+    // stackAが空の場合の処理を追加
+    if (stackA->size == 0) {
+        stackA->data[0] = stackB->data[0];
+    } else {
+        int i = stackA->size;
+        while (i > 0)
+        {
+            stackA->data[i] = stackA->data[i - 1];
+            i--;
+        }
+        stackA->data[0] = stackB->data[0];
     }
-    stackA->data[0] = stackB->data[0];
-    i = 0;
+
+    // stackBの要素を前に詰める処理を修正
+    int i = 0;
     while (i < stackB->size - 1)
     {
         stackB->data[i] = stackB->data[i + 1];
@@ -52,6 +89,29 @@ void pa(t_stack *stackA, t_stack *stackB)
     stackA->size += 1;
     stackB->size -= 1;
 }
+
+// void pa(t_stack *stackA, t_stack *stackB)
+// {
+//     int i;
+
+//     if (stackB->size < 1)
+//         return;
+//     i = stackA->size;
+//     while (i > 0)
+//     {
+//         stackA->data[i] = stackA->data[i - 1];
+//         i--;
+//     }
+//     stackA->data[0] = stackB->data[0];
+//     i = 0;
+//     while (i < stackB->size - 1)
+//     {
+//         stackB->data[i] = stackB->data[i + 1];
+//         i++;
+//     }
+//     stackA->size += 1;
+//     stackB->size -= 1;
+// }
 
 void pb(t_stack *stackA, t_stack *stackB)
 {
