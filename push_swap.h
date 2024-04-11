@@ -53,16 +53,17 @@ void sa(t_data *data);
 void sb(t_data *data);
 void ss(t_data *data);
 
-void pa(t_stack *stackA, t_stack *stackB);
-void pb(t_stack *stackA, t_stack *stackB);
+void pa(t_data *data);
+void pb(t_data *data);
 
-void ra(t_stack *stackA);
-void rb(t_stack *stackB);
-void rr(t_stack *stackA, t_stack *stackB);
+void ra(t_data *data);
+void rb(t_data *data);
+void rr(t_data *data);
 
-void rra(t_stack *stackA);
-void rrb(t_stack *stackB);
-void rrr(t_stack *stackA, t_stack *stackB);
+//void rra(t_stack **stackA);
+void rra(t_data *data);
+void rrb(t_data *data);
+void rrr(t_data *data);
 
 int find_max(t_stack *stack);
 int find_min(t_stack *stack);
@@ -71,6 +72,8 @@ void array_to_stack(t_data *data, int *arr, int len);
 void stack_to_array(t_stack *stack, int *arr);
 void sort_large_100(t_data *data);
 void sort_large_500(t_data *data);
+
+int ft_partition(int arr[], int low, int high);
 
 // この関数は提出の時は消すように！（debug 用）
 void    check_stack(t_data *data);

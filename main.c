@@ -176,10 +176,10 @@ int main(int argc, char **argv)
 	t_data    *data;
 	if (argc < 2)
 		return (0);
-	data = data_init(); // malloc struct and put NULL to a and b 
-	if (arg_invalid(argc, argv)) // 数値以外が含まれている場合はエラー
+	data = data_init();// malloc struct and put NULL to a and b 
+	if (arg_invalid(argc, argv))// 数値以外が含まれている場合はエラー
 		return (error_exit(data)); // error は終了ステータスを1にする
-	put_data(data, argc, argv); // put data to a
+	put_data(data, argc, argv);// put data to a
 	compress_num(data); // compress number
 	if (is_sorted(data)) // すでにソートされている場合は何もしない
 	{
