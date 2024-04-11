@@ -21,6 +21,7 @@ void ra(t_data *data)
     last->next = first; // 元の最後のノード（新しい最後から2番目のノード）のnextを元の最初のノード（新しい最後のノード）に設定
     first->prev = last; // 新しい最後のノードのprevを元の最後のノード（新しい最後から2番目のノード）に設定
     first->next = NULL; // 新しい最後のノードのnextをNULLに設定
+    printf("ra\n");
 }
 
 void rb(t_data *data)
@@ -44,10 +45,12 @@ void rb(t_data *data)
     last->next = first; // 元の最後のノード（新しい最後から2番目のノード）のnextを元の最初のノード（新しい最後のノード）に設定
     first->prev = last; // 新しい最後のノードのprevを元の最後のノード（新しい最後から2番目のノード）に設定
     first->next = NULL; // 新しい最後のノードのnextをNULLに設定
+    printf("rb\n");
 }
 
 void rr(t_data *data)
 {
     ra(data);
     rb(data);
+    printf("rr\n");
 }

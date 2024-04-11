@@ -30,6 +30,7 @@ void sa(t_data *data)
     if (tmp->next != NULL)
         tmp->next->prev = tmp;
     format_data(data);
+    printf("sa\n");
 }
 
 void sb(t_data *data)
@@ -50,10 +51,12 @@ void sb(t_data *data)
     if (tmp->next != NULL)
         tmp->next->prev = tmp;
     format_data(data);
+    printf("sb\n");
 }
 
 void ss(t_data *data)
 {
     sa(data);
     sb(data);
+    printf("ss\n");
 }

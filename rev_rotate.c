@@ -19,6 +19,7 @@ void rra(t_data *data)
     data->a->prev = last; // 元々の最初のノード（新しい最後のノード）のprevを元々の最後のノード（新しい最初のノード）に設定
     last->prev = NULL; // 新しい最初のノードのprevをNULLに設定
     data->a = last; // 最初のノードを更新
+    printf("rra\n");
 }
 
 void rrb(t_data *data)
@@ -40,10 +41,12 @@ void rrb(t_data *data)
     data->b->prev = last;
     last->prev = NULL;
     data->b = last;
+    printf("rrb\n");
 }
 
 void rrr(t_data *data)
 {
     rra(data);
     rrb(data);
+    printf("rrr\n");
 }
