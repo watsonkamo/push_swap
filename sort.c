@@ -34,24 +34,57 @@ void sort_3(t_data *data)
 	}
 }
 
+// void sort_4(t_data *data)
+// {
+// 	int    min;
+// 	int    max;
+
+// 	min = find_min(data->a);
+// 	max = find_max(data->a);
+// 	while (data->a->compress_num != min && data->a->compress_num != max)
+// 		ra(data);
+// 	if (data->a->compress_num == max)
+// 		sa(data);
+// 	pb(data);
+// 	sort_3(data);
+// 	pa(data);
+// }
+
 void sort_4(t_data *data)
 {
-	int    min;
-	int    max;
-printf("%s\n", "check_sort_4-1");
-	min = find_min(data->a);
-	max = find_max(data->a);
-	while (data->a->compress_num != min && data->a->compress_num != max)
+	t_stack *tmp;
+	int min;
+
+	tmp = data->a;
+	min = find_min(tmp);
+	while (tmp->compress_num != min)
 	{
-		printf("%s\n", "check_sort_4-2");
 		ra(data);
+		tmp = data->a;
 	}
-	if (data->a->compress_num == max)
-		sa(data);
 	pb(data);
 	sort_3(data);
 	pa(data);
 }
+
+// void	ft_sort_four(t_arg *arg)
+// {
+// 	t_node	*node;
+// 	int		small;
+
+// 	node = arg->a->top;
+// 	small = ft_get_stack_min(arg->a);
+// 	while (node)
+// 	{
+// 		if (small == node->data)
+// 			break ;
+// 		ft_judge_rotate(arg, 'a', 1);
+// 		node = arg->a->top;
+// 	}
+// 	ft_judge_push(arg, 'b', 1);
+// 	ft_sort_three(arg);
+// 	ft_judge_push(arg, 'a', 1);
+// }
 
 void sort_5(t_data *data)
 {

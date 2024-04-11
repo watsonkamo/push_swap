@@ -188,10 +188,10 @@ int main(int argc, char **argv)
 	}
 	if (check_duplicate(data)) // ./push_swap "1 1 2" とかはエラー
 		return (error_exit(data)); // error は終了ステータスを1にする
-	printf("---start_sort---\n");
-	check_stack(data);
-	sort(data); // ← こいつがセグフォしてる
-	printf("--- end_sort ---\n");
+	//printf("---start_sort---\n");
+	//check_stack(data);
+	sort(data);
+	//printf("--- end_sort ---\n");
 	check_stack(data);
 	free_data(data);
 	return (0);
