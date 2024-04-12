@@ -5,11 +5,11 @@ int find_max(t_stack *stack)
     int max;
     t_stack *temp;
 
-    if (stack == NULL) {
+    if (stack == NULL)
+    {
         printf("Error: Stack is empty!\n");
         return -1; // あるいは適切なエラーコードを返す
     }
-
     max = stack->compress_num;
     temp = stack->next;
     while (temp && temp != stack)
@@ -18,7 +18,7 @@ int find_max(t_stack *stack)
             max = temp->compress_num;
         temp = temp->next;
     }
-    return max;
+    return (max);
 }
 
 int find_min(t_stack *stack)
@@ -26,11 +26,11 @@ int find_min(t_stack *stack)
     int min;
     t_stack *temp;
 
-    if (stack == NULL) {
+    if (stack == NULL)
+    {
         printf("Error: Stack is empty!\n");
         return -1; // あるいは適切なエラーコードを返す
     }
-
     min = stack->compress_num;
     temp = stack->next;
     while (temp && temp != stack)
@@ -39,41 +39,8 @@ int find_min(t_stack *stack)
             min = temp->compress_num;
         temp = temp->next;
     }
-    return min;
+    return (min);
 }
-
-
-// int find_max(t_stack *stack)
-// {
-// 	int    max;
-// 	t_stack    *temp;
-
-// 	max = stack->compress_num;
-// 	temp = stack->next;
-// 	while (temp)
-// 	{
-// 		if (temp->compress_num > max)
-// 			max = temp->compress_num;
-// 		temp = temp->next;
-// 	}
-// 	return (max);
-// }
-
-// int find_min(t_stack *stack)
-// {
-// 	int    min;
-// 	t_stack    *temp;
-
-// 	min = stack->compress_num;
-// 	temp = stack->next;
-// 	while (temp)
-// 	{
-// 		if (temp->compress_num < min)
-// 			min = temp->compress_num;
-// 		temp = temp->next;
-// 	}
-// 	return (min);
-// }
 
 void sort_large_100(t_data *data)
 {

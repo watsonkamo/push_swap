@@ -34,22 +34,6 @@ void sort_3(t_data *data)
 	}
 }
 
-// void sort_4(t_data *data)
-// {
-// 	int    min;
-// 	int    max;
-
-// 	min = find_min(data->a);
-// 	max = find_max(data->a);
-// 	while (data->a->compress_num != min && data->a->compress_num != max)
-// 		ra(data);
-// 	if (data->a->compress_num == max)
-// 		sa(data);
-// 	pb(data);
-// 	sort_3(data);
-// 	pa(data);
-// }
-
 void sort_4(t_data *data)
 {
 	t_stack *tmp;
@@ -67,57 +51,32 @@ void sort_4(t_data *data)
 	pa(data);
 }
 
-// void	ft_sort_four(t_arg *arg)
-// {
-// 	t_node	*node;
-// 	int		small;
-
-// 	node = arg->a->top;
-// 	small = ft_get_stack_min(arg->a);
-// 	while (node)
-// 	{
-// 		if (small == node->data)
-// 			break ;
-// 		ft_judge_rotate(arg, 'a', 1);
-// 		node = arg->a->top;
-// 	}
-// 	ft_judge_push(arg, 'b', 1);
-// 	ft_sort_three(arg);
-// 	ft_judge_push(arg, 'a', 1);
-// }
-
 void sort_5(t_data *data)
 {
 	int    min;
-	int    max;
 
 	min = find_min(data->a);
-	max = find_max(data->a);
-	while (data->a->compress_num != min && data->a->compress_num != max)
+	if (data->a->compress_num == min)
+		;
+	else if (data->a->next->compress_num == min)
+	{
 		ra(data);
-	if (data->a->compress_num == max && data->a->next->compress_num != min)
-		sa(data);
+	}
+	else if (data->a->next->next->compress_num == min)
+	{
+		ra(data);
+		ra(data);
+	}
+	else
+	{
+		while (data->a->compress_num != min)
+			rra(data);
+	}
 	pb(data);
 	sort_4(data);
 	pa(data);
 }
 
-
-// void sort_5(t_data *data)
-// {
-// 	int    min;
-// 	int    max;
-
-// 	min = find_min(data->a);
-// 	max = find_max(data->a);
-// 	while (data->a->compress_num != min && data->a->compress_num != max)
-// 		ra(data);
-// 	if (data->a->compress_num == max)
-// 		sa(data);
-// 	pb(data);
-// 	sort_4(data);
-// 	pa(data);
-// }
 
 // void sort_large(t_data *data)
 // {
@@ -147,8 +106,6 @@ void sort_5(t_data *data)
 // 	}
 // 	free(arr);
 // }
-
-
 
 void sort_large(t_data *data)
 {

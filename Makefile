@@ -1,7 +1,7 @@
 NAME		= push_swap
 
 CC			= cc
-CFLAGS		= -Wall -Werror -Wextra -g
+CFLAGS		= -Wall -Werror -Wextra -g -fsanitize=address
 
 SRCS = $(wildcard *.c)
 OBJS = $(SRCS:.c=.o)
