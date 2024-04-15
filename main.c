@@ -80,6 +80,26 @@ void stack_add_back(t_stack *stack, t_stack *new)
 	new->prev = tmp;
 }
 
+// void stack_add_back(t_stack **stack, t_stack *new)
+// {
+//     t_stack    *tmp;
+
+//     if (*stack == NULL) // スタックが空の場合
+//     {
+//         *stack = new; // 新しいノードをスタックの先頭にする
+//         new->prev = NULL; // 新しいノードの前はNULL
+//     }
+//     else
+//     {
+//         tmp = *stack;
+//         while (tmp->next != NULL) // スタックの最後まで移動
+//             tmp = tmp->next;
+//         tmp->next = new; // 新しいノードを最後に追加
+//         new->prev = tmp; // 新しいノードの前を設定
+//     }
+// }
+
+
 int stack_len(t_stack *stack)
 {
 	int    len;
@@ -192,7 +212,7 @@ int main(int argc, char **argv)
 	//check_stack(data);
 	sort(data);
 	//printf("--- end_sort ---\n");
-	check_stack(data);
+	// check_stack(data);
 	free_data(data);
 	return (0);
 }

@@ -42,6 +42,7 @@ int arg_invalid(int argc, char **argv);
 void free_data(t_data *data);
 t_stack *stack_new(int num);
 void stack_add_back(t_stack *stack, t_stack *new);
+// void stack_add_back(t_stack **stack, t_stack *new);
 int stack_len(t_stack *stack);
 int error_exit(t_data *data);
 void put_data(t_data *data, int argc, char **argv);

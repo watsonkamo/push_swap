@@ -77,54 +77,91 @@ void sort_5(t_data *data)
 	pa(data);
 }
 
+void send_to_b(t_data *data, int pivot)
+{
+	int i;
+	int len;
+	t_stack *tmp;
 
-// void sort_large(t_data *data)
-// {
-// 	int len;
-// 	t_stack *tmp;
-// 	int *arr;
+	i = 0;
+	len = stack_len(data->a);
+	while (i < len)
+	{
+		tmp = data->a;
+		if (tmp->compress_num <= pivot)
+			pb(data);
+		else
+			ra(data);
+		i++;
+	}
+}
 
-// 	len = stack_len(data->a);
-// 	arr = (int *)malloc(sizeof(int) * len);
-// 	if (!arr)
-// 	{
-// 		printf("Memory allocation failed!\n");
-// 		return ;
-// 	}
-// 	tmp = data->a;
-// 	for (int i = 0; i < len; i++)
-// 	{
-// 		arr[i] = tmp->compress_num;
-// 		tmp = tmp->next;
-// 	}
-// 	quick_sort(arr, 0, len - 1);
-// 	tmp = data->a;
-// 	for (int i = 0; i < len; i++)
-// 	{
-// 		tmp->compress_num = arr[i];
-// 		tmp = tmp->next;
-// 	}
-// 	free(arr);
-// }
+void send_to_b_all(t_data *data)
+{
+	int i;
+	int len;
+	// t_stack *tmp;
+
+	i = 0;
+	len = stack_len(data->a);
+	while (i < len)
+	{
+		// tmp = data->a;
+		pb(data);
+		i++;
+	}
+}
 
 void sort_large(t_data *data)
 {
-	int    len;
-	int    *arr;
+	// quick sort を使いたい
 
-	len = stack_len(data->a);
-	arr = (int *)malloc(sizeof(int) * len);
-	if (!arr)
-		return ;
-	stack_to_array(data->a, arr);
-	quick_sort(arr, 0, len - 1);
-	array_to_stack(data, arr, len);
-	free(arr);
-	if (len <= 100)
-		sort_large_100(data);
-	else
-		sort_large_500(data);
+	// 基準の値を決める
+	int	pivot;
+	pivot = find_max(data->a) / 2;
+	// 全体の数を見て中央値以下の時 a->b
+	// それ以外の時 a->a
+	// 送り終わったら a->b
+	send_to_b(data, pivot);
+	send_to_b_all(data);
+	// bの中の最大値のみをaに送る
+	// bの最大値が上半分にあるか下半分にあるかで処理を変える
+	// 上半分の時 最大値が一番上に来るまでrb
+	// 下半分の時 最大値が一番上に来るまでrrb
+	while (data->b != NULL)
+	{
+		if (data->b->compress_num == find_max(data->b))
+			pa(data);
+		else
+			rb(data);
+	}
 }
+
+// void sort_large(t_data *data)
+// {
+// 	int i;
+// 	int size;
+// 	t_stack *tmp;
+
+// 	i = 0;
+// 	size = stack_len(data->a);
+// 	//ft_partition(data);
+// 	while (i < compress_num && data->a->compress_num > 5)
+// 	{
+// 		tmp = find_min(data->a);
+// 		if (tmp->data <= data->a->data[1])
+// 		{
+// 			pb(data);
+// 			if (tmp->data <= data->a->data[0])
+// 				rb(data);
+// 		}
+// 		else
+// 			ra(data);
+// 		i++;
+// 	}
+// 	while (data->a->compress_num > 5)
+// 		pb(data);
+// }
 
 void sort(t_data *data)
 {

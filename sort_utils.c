@@ -8,7 +8,7 @@ int find_max(t_stack *stack)
     if (stack == NULL)
     {
         printf("Error: Stack is empty!\n");
-        return -1; // あるいは適切なエラーコードを返す
+        return (-1); // あるいは適切なエラーコードを返す
     }
     max = stack->compress_num;
     temp = stack->next;
@@ -29,7 +29,7 @@ int find_min(t_stack *stack)
     if (stack == NULL)
     {
         printf("Error: Stack is empty!\n");
-        return -1; // あるいは適切なエラーコードを返す
+        return (-1); // あるいは適切なエラーコードを返す
     }
     min = stack->compress_num;
     temp = stack->next;
@@ -42,50 +42,22 @@ int find_min(t_stack *stack)
     return (min);
 }
 
-void sort_large_100(t_data *data)
-{
-	int len;
-	int *arr;
+// void sort_large_100(t_data *data)
+// {
+// 	int len;
+// 	int *arr;
 
-    len = stack_len(data->a);
-    arr = (int *)malloc(sizeof(int) * len);
-	if (!arr)
-		return;
-	stack_to_array(data->a, arr);
-	quick_sort(arr, 0, len - 1);
-	array_to_stack(data, arr, len);
-	free(arr);
-}
+//     len = stack_len(data->a);
+//     printf("len -> %d\n", len);
+//     arr = (int *)malloc(sizeof(int) * len);
+// 	if (!arr)
+// 		return;
+// 	stack_to_array(data->a, arr);
+// 	quick_sort(arr, 0, len - 1);
+// 	array_to_stack(data, arr, len);
+// 	free(arr);
+// }
 
-void swap(int* a, int* b) {
-    int t = *a;
-    *a = *b;
-    *b = t;
-}
-
-int partition(int arr[], int low, int high) {
-    int pivot = arr[high];  
-    int i = (low - 1);  
-
-    for (int j = low; j <= high - 1; j++) {
-        if (arr[j] < pivot) {
-            i++; 
-            swap(&arr[i], &arr[j]);
-        }
-    }
-    swap(&arr[i + 1], &arr[high]);
-    return (i + 1);
-}
-
-void quick_sort(int arr[], int low, int high) {
-    if (low < high) 
-    {
-        int pi = partition(arr, low, high);
-
-        quick_sort(arr, low, pi - 1);
-        quick_sort(arr, pi + 1, high);
-    }
-}
 
 void stack_to_array(t_stack *stack, int *arr)
 {
@@ -99,6 +71,23 @@ void stack_to_array(t_stack *stack, int *arr)
 		i++;
 	}
 }
+
+// void clear_stack(t_stack **stack)
+// {
+//     t_stack *temp;
+//     t_stack *next;
+
+//     temp = *stack;
+//     while (temp != NULL)
+//     {
+//         next = temp->next;
+//         free(temp);
+//         temp = next;
+//     }
+//     *stack = NULL; // スタックの先頭をNULLに設定して、空になったことを示す
+// }
+
+
 void array_to_stack(t_data *data, int *arr, int len)
 {
 	int    i;
@@ -111,31 +100,32 @@ void array_to_stack(t_data *data, int *arr, int len)
 	}
 }
 
-void sort_large_500(t_data *data)
-{
-	int    i;
-	int    len;
-	int    chunk;
-	int    *arr;
 
-	len = stack_len(data->a);
-	chunk = len / 11;
-	arr = (int *)malloc(sizeof(int) * len);
-	if (!arr)
-		return ;
-	i = 0;
-	while (i < 11)
-	{
-		if (i == 10)
-			chunk = len - (chunk * 10);
-		arr = (int *)malloc(sizeof(int) * chunk);
-		if (!arr)
-			return ;
-		stack_to_array(data->a, arr);
-		quick_sort(arr, 0, chunk - 1);
-		array_to_stack(data, arr, chunk);
-		free(arr);
-		i++;
-	}
-}
+// void sort_large_500(t_data *data)
+// {
+// 	int    i;
+// 	int    len;
+// 	int    chunk;
+// 	int    *arr;
+
+// 	len = stack_len(data->a);
+// 	chunk = len / 11;
+// 	arr = (int *)malloc(sizeof(int) * len);
+// 	if (!arr)
+// 		return ;
+// 	i = 0;
+// 	while (i < 11)
+// 	{
+// 		if (i == 10)
+// 			chunk = len - (chunk * 10);
+// 		arr = (int *)malloc(sizeof(int) * chunk);
+// 		if (!arr)
+// 			return ;
+// 		stack_to_array(data->a, arr);
+// 		quick_sort(arr, 0, chunk - 1);
+// 		array_to_stack(data, arr, chunk);
+// 		free(arr);
+// 		i++;
+// 	}
+// }
 
