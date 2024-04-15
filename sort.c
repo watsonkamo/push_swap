@@ -77,10 +77,11 @@ void sort_5(t_data *data)
 	pa(data);
 }
 
-void send_to_b(t_data *data, int pivot)
+void send_to_b(t_data *data, int min, int pivot)
 {
 	int i;
 	int len;
+	int average = (pivot + min) / 2;
 	t_stack *tmp;
 
 	i = 0;
@@ -89,7 +90,11 @@ void send_to_b(t_data *data, int pivot)
 	{
 		tmp = data->a;
 		if (tmp->compress_num <= pivot)
+		{
 			pb(data);
+			if (tmp->compress_num <= average)
+				rb(data);
+		}
 		else
 			ra(data);
 		i++;
@@ -112,17 +117,74 @@ void send_to_b_all(t_data *data)
 	}
 }
 
+bool is_above_the_center(t_stack *stack, int num)
+{
+	t_stack *tmp = stack;
+	t_stack *tmp2 = stack;
+
+	while (tmp2->next != NULL) //最後の要素になるまで
+		tmp2 = tmp2->next;
+	while (tmp->next != NULL)
+	{
+		if (tmp->compress_num == num)
+			return (true);
+		if (tmp2->compress_num == num)
+			return (false);
+		tmp = tmp->next;
+		tmp2 = tmp2->prev;
+	}
+	return (false);
+}
+
+// bool is_sorted(t_stack *stack)
+// {
+// 	t_stack *tmp;
+// 	int len;
+// 	int i;
+
+// 	tmp = stack;
+// 	len = 0;
+// 	while (tmp->next != NULL)
+// 	{
+// 		if (tmp->origin_num > tmp->next->origin_num)
+// 			return (false);
+// 		tmp = tmp->next;
+// 		len++;
+// 	}
+// }
+
+# define division 8
+
 void sort_large(t_data *data)
 {
 	// quick sort を使いたい
 
 	// 基準の値を決める
-	int	pivot;
-	pivot = find_max(data->a) / 2;
+	//データセットを8つのデータセットに分割
+	// それぞれのデータセットの中央値を基準の値とする
+	int	pivot = -1;
+	int min;
+
 	// 全体の数を見て中央値以下の時 a->b
 	// それ以外の時 a->a
 	// 送り終わったら a->b
-	send_to_b(data, pivot);
+	int i = 1;
+	while (i < division)
+	{
+		// min = 0;
+		min = pivot + 1;
+		pivot = find_max(data->a) / division * i;
+		send_to_b(data, min, pivot);
+		i++;
+	}
+	// min = pivot + 1;
+	// pivot = find_max(data->a) / 4 * 2;
+	// send_to_b(data, min, pivot);
+
+	// min = pivot + 1;
+	// pivot = find_max(data->a) / 4 * 3;
+	// send_to_b(data, min, pivot);
+
 	send_to_b_all(data);
 	// bの中の最大値のみをaに送る
 	// bの最大値が上半分にあるか下半分にあるかで処理を変える
@@ -132,8 +194,13 @@ void sort_large(t_data *data)
 	{
 		if (data->b->compress_num == find_max(data->b))
 			pa(data);
-		else
+		else if (is_above_the_center(data->b, find_max(data->b)))//上分にあったら
+		{
 			rb(data);
+			//上半分→rb 下半分→rrb
+		}
+		else 
+			rrb(data);
 	}
 }
 
