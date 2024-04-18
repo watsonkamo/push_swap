@@ -6,7 +6,7 @@
 /*   By: eshintan <eshintan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 18:48:48 by eshintan          #+#    #+#             */
-/*   Updated: 2024/04/18 18:48:49 by eshintan         ###   ########.fr       */
+/*   Updated: 2024/04/18 18:50:36 by eshintan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,44 +14,44 @@
 
 int find_max(t_stack *stack)
 {
-    int max;
-    t_stack *temp;
+	int max;
+	t_stack *temp;
 
-    if (stack == NULL)
-    {
-        printf("Error: Stack is empty!\n");
-        return (-1); // あるいは適切なエラーコードを返す
-    }
-    max = stack->compress_num;
-    temp = stack->next;
-    while (temp && temp != stack)
-    {
-        if (temp->compress_num > max)
-            max = temp->compress_num;
-        temp = temp->next;
-    }
-    return (max);
+	if (stack == NULL)
+	{
+		printf("Error: Stack is empty!\n");
+		return (-1); // あるいは適切なエラーコードを返す
+	}
+	max = stack->compress_num;
+	temp = stack->next;
+	while (temp && temp != stack)
+	{
+		if (temp->compress_num > max)
+			max = temp->compress_num;
+		temp = temp->next;
+	}
+	return (max);
 }
 
 int find_min(t_stack *stack)
 {
-    int min;
-    t_stack *temp;
+	int min;
+	t_stack *temp;
 
-    if (stack == NULL)
-    {
-        printf("Error: Stack is empty!\n");
-        return (-1); // あるいは適切なエラーコードを返す
-    }
-    min = stack->compress_num;
-    temp = stack->next;
-    while (temp && temp != stack)
-    {
-        if (temp->compress_num < min)
-            min = temp->compress_num;
-        temp = temp->next;
-    }
-    return (min);
+	if (stack == NULL)
+	{
+		printf("Error: Stack is empty!\n");
+		return (-1); // あるいは適切なエラーコードを返す
+	}
+	min = stack->compress_num;
+	temp = stack->next;
+	while (temp && temp != stack)
+	{
+		if (temp->compress_num < min)
+			min = temp->compress_num;
+		temp = temp->next;
+	}
+	return (min);
 }
 
 // void sort_large_100(t_data *data)
