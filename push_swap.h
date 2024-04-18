@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: eshintan <eshintan@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/18 18:47:17 by eshintan          #+#    #+#             */
+/*   Updated: 2024/04/18 18:47:38 by eshintan         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
@@ -17,7 +29,7 @@
 typedef struct s_stack
 {
 	int *data;
-    int size;
+	int size;
 	struct s_stack      *next;
 	struct s_stack      *prev;
 	int                 origin_num;
@@ -35,7 +47,7 @@ void	sort_3(t_data *data);
 void	sort_4(t_data *data);
 void	sort_5(t_data *data);
 void	sort_large(t_data *data);
-void sort(t_data *data);
+void	sort(t_data *data);
 
 t_data *data_init(void);
 int arg_invalid(int argc, char **argv);
