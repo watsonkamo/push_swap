@@ -6,7 +6,7 @@
 /*   By: emma <emma@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 18:47:17 by eshintan          #+#    #+#             */
-/*   Updated: 2024/04/22 18:40:13 by emma             ###   ########.fr       */
+/*   Updated: 2024/04/22 18:45:15 by emma             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,17 @@ typedef struct s_data
 	t_stack	*b;
 }	t_data;
 
+// sort.c
+void	sort(t_data *data);
+
+// sort_small.c
 void	sort_2(t_data *data);
 void	sort_3(t_data *data);
 void	sort_4(t_data *data);
 void	sort_5(t_data *data);
+
+// sort_large.c
 void	sort_large(t_data *data);
-void	sort(t_data *data);
 
 // arg_check.c
 int		arg_invalid(int argc, char **argv);
@@ -55,29 +60,31 @@ int		find_max(t_stack *stack);
 int		find_min(t_stack *stack);
 
 // push.c
-void pa(t_data *data);
-void pb(t_data *data);
-
-// rev_rotate.c
-void rra(t_data *data);
-void rrb(t_data *data);
-void rrr(t_data *data);
+void	pa(t_data *data);
+void	pb(t_data *data);
 
 // rotate.c
-void ra(t_data *data);
-void rb(t_data *data);
-void rr(t_data *data);
+void	ra(t_data *data);
+void	rb(t_data *data);
+void	rr(t_data *data);
+
+// rev_rotate.c
+void	rra(t_data *data);
+void	rrb(t_data *data);
+void	rrr(t_data *data);
 
 // swap.c
-void sa(t_data *data);
-void sb(t_data *data);
-void ss(t_data *data);
+void	sa(t_data *data);
+void	sb(t_data *data);
+void	ss(t_data *data);
 
+// stack_struct.c
+t_stack	*stack_new(int num);
+void	stack_add_back(t_stack *stack, t_stack *new);
+int		stack_len(t_stack *stack);
 
-t_stack *stack_new(int num);
-void stack_add_back(t_stack *stack, t_stack *new);
-int stack_len(t_stack *stack);
-int error_exit(t_data *data);
+// util.c
+int		error_exit(t_data *data);
 
 
 
