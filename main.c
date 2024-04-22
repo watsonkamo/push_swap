@@ -6,7 +6,7 @@
 /*   By: emma <emma@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 18:45:58 by eshintan          #+#    #+#             */
-/*   Updated: 2024/04/22 17:41:49 by emma             ###   ########.fr       */
+/*   Updated: 2024/04/22 17:56:57 by emma             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,26 +93,6 @@ void stack_add_back(t_stack *stack, t_stack *new)
 	tmp->next = new;
 	new->prev = tmp;
 }
-
-// void stack_add_back(t_stack **stack, t_stack *new)
-// {
-//     t_stack    *tmp;
-
-//     if (*stack == NULL) // スタックが空の場合
-//     {
-//         *stack = new; // 新しいノードをスタックの先頭にする
-//         new->prev = NULL; // 新しいノードの前はNULL
-//     }
-//     else
-//     {
-//         tmp = *stack;
-//         while (tmp->next != NULL) // スタックの最後まで移動
-//             tmp = tmp->next;
-//         tmp->next = new; // 新しいノードを最後に追加
-//         new->prev = tmp; // 新しいノードの前を設定
-//     }
-// }
-
 
 int stack_len(t_stack *stack)
 {
@@ -227,11 +207,7 @@ int main(int argc, char **argv)
 		free_data(data);
 		return (0);
 	}
-	//printf("---start_sort---\n");
-	//check_stack(data);
 	sort(data);
-	//printf("--- end_sort ---\n");
-	// check_stack(data);
 	free_data(data);
 	return (0);
 }

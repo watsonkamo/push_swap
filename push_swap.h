@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eshintan <eshintan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: emma <emma@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 18:47:17 by eshintan          #+#    #+#             */
-/*   Updated: 2024/04/18 18:47:38 by eshintan         ###   ########.fr       */
+/*   Updated: 2024/04/22 17:56:25 by emma             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,6 @@
 # include <limits.h>
 # include <stdbool.h>
 # include "libft.h"
-
-// typedef struct s_stack
-// {
-//     int *data;
-//     int size;
-// } t_stack;
 
 typedef struct s_stack
 {

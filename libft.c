@@ -6,17 +6,16 @@
 /*   By: emma <emma@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 18:43:32 by eshintan          #+#    #+#             */
-/*   Updated: 2024/04/22 17:42:09 by emma             ###   ########.fr       */
+/*   Updated: 2024/04/22 17:55:40 by emma             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <sys/_types/_size_t.h>
+#include <unistd.h>
 
 int	ft_isdigit(int c)
 {
-	if (c >= '0' && c <= '9')
-		return (1);
-	return (0);
+	return (c >= '0' && c <= '9');
 }
 
 long	ft_atol(const char *str)
