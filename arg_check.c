@@ -6,7 +6,7 @@
 /*   By: emma <emma@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 18:22:44 by emma              #+#    #+#             */
-/*   Updated: 2024/04/22 18:54:59 by emma             ###   ########.fr       */
+/*   Updated: 2024/04/22 19:11:16 by emma             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ int	arg_invalid(int argc, char **argv)
 			if (argv[i][j] == '-' || argv[i][j] == '+')
 				if (j != 0 || argv[i][j + 1] == '\0')
 					return (1);
-			if (!ft_isdigit(argv[i][j]) && argv[i][j] != '-' && argv[i][j] != '+')
+			if (!ft_isdigit(argv[i][j]) && argv[i][j] != '-' && \
+				argv[i][j] != '+')
 				return (1);
 			j++;
 		}
