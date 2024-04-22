@@ -6,7 +6,7 @@
 /*   By: emma <emma@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 18:47:17 by eshintan          #+#    #+#             */
-/*   Updated: 2024/04/22 18:45:15 by emma             ###   ########.fr       */
+/*   Updated: 2024/04/22 18:46:01 by emma             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,10 +85,5 @@ int		stack_len(t_stack *stack);
 
 // util.c
 int		error_exit(t_data *data);
-
-
-
-
-
 
 #endif
