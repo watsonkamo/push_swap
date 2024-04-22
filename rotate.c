@@ -6,7 +6,7 @@
 /*   By: emma <emma@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 18:48:27 by eshintan          #+#    #+#             */
-/*   Updated: 2024/04/22 18:59:05 by emma             ###   ########.fr       */
+/*   Updated: 2024/04/22 19:06:14 by emma             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	ra(t_data *data)
 	first = data->a;
 	last = data->a;
 	if (data->a == NULL || data->a->next == NULL)
-		return;
+		return ;
 	while (last->next != NULL)
 		last = last->next;
 	data->a = first->next;
@@ -39,7 +39,7 @@ void	rb(t_data *data)
 	first = data->b;
 	last = data->b;
 	if (data->b == NULL || data->b->next == NULL)
-		return;
+		return ;
 	while (last->next != NULL)
 		last = last->next;
 	data->b = first->next;

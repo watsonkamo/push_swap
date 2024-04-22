@@ -6,14 +6,14 @@
 /*   By: emma <emma@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 18:45:21 by eshintan          #+#    #+#             */
-/*   Updated: 2024/04/22 18:58:49 by emma             ###   ########.fr       */
+/*   Updated: 2024/04/22 19:07:38 by emma             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-#include <sys/_types/_size_t.h>
+# include <sys/_types/_size_t.h>
 
 int		ft_isdigit(int c);
 long	ft_atol(const char *str);

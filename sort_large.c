@@ -6,7 +6,7 @@
 /*   By: emma <emma@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 18:12:21 by emma              #+#    #+#             */
-/*   Updated: 2024/04/22 18:55:28 by emma             ###   ########.fr       */
+/*   Updated: 2024/04/22 19:07:50 by emma             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ void	sort_large(t_data *data)
 			pa(data);
 		else if (is_above_the_center(data->b, find_max(data->b)))
 			rb(data);
-		else 
+		else
 			rrb(data);
 	}
 }

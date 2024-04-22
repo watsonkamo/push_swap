@@ -6,13 +6,13 @@
 /*   By: emma <emma@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 18:24:04 by emma              #+#    #+#             */
-/*   Updated: 2024/04/22 18:46:53 by emma             ###   ########.fr       */
+/*   Updated: 2024/04/22 19:05:18 by emma             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack *stack_new(int num)
+t_stack	*stack_new(int num)
 {
 	t_stack	*new;
 
@@ -26,7 +26,7 @@ t_stack *stack_new(int num)
 	return (new);
 }
 
-void stack_add_back(t_stack *stack, t_stack *new)
+void	stack_add_back(t_stack *stack, t_stack *new)
 {
 	t_stack	*tmp;
 
@@ -37,7 +37,7 @@ void stack_add_back(t_stack *stack, t_stack *new)
 	new->prev = tmp;
 }
 
-int stack_len(t_stack *stack)
+int	stack_len(t_stack *stack)
 {
 	int	len;
 
