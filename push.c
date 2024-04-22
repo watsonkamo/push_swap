@@ -6,13 +6,13 @@
 /*   By: emma <emma@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 18:47:58 by eshintan          #+#    #+#             */
-/*   Updated: 2024/04/22 18:27:32 by emma             ###   ########.fr       */
+/*   Updated: 2024/04/22 18:53:22 by emma             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void pa(t_data *data)
+void	pa(t_data *data)
 {
 	t_stack	*top_b;
 
@@ -30,7 +30,7 @@ void pa(t_data *data)
 	ft_putendl_fd("pa", 1);
 }
 
-void pb(t_data *data)
+void	pb(t_data *data)
 {
 	t_stack	*top_a;
 

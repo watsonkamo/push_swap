@@ -6,16 +6,16 @@
 /*   By: emma <emma@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 18:48:07 by eshintan          #+#    #+#             */
-/*   Updated: 2024/04/22 18:20:01 by emma             ###   ########.fr       */
+/*   Updated: 2024/04/22 18:53:15 by emma             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void rra(t_data *data)
+void	rra(t_data *data)
 {
-	t_stack *last;
-	t_stack *prev;
+	t_stack	*last;
+	t_stack	*prev;
 
 	last = data->a;
 	prev = NULL;
@@ -34,10 +34,10 @@ void rra(t_data *data)
 	ft_putendl_fd("rra", 1);
 }
 
-void rrb(t_data *data)
+void	rrb(t_data *data)
 {
-	t_stack *last;
-	t_stack *prev;
+	t_stack	*last;
+	t_stack	*prev;
 
 	last = data->b;
 	prev = NULL;
@@ -56,7 +56,7 @@ void rrb(t_data *data)
 	ft_putendl_fd("rrb", 1);
 }
 
-void rrr(t_data *data)
+void	rrr(t_data *data)
 {
 	rra(data);
 	rrb(data);

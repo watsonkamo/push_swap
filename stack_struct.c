@@ -6,7 +6,7 @@
 /*   By: emma <emma@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 18:24:04 by emma              #+#    #+#             */
-/*   Updated: 2024/04/22 18:25:24 by emma             ###   ########.fr       */
+/*   Updated: 2024/04/22 18:46:53 by emma             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_stack *stack_new(int num)
 {
-	t_stack    *new;
+	t_stack	*new;
 
 	new = (t_stack *)malloc(sizeof(t_stack));
 	if (!new)
@@ -28,7 +28,7 @@ t_stack *stack_new(int num)
 
 void stack_add_back(t_stack *stack, t_stack *new)
 {
-	t_stack    *tmp;
+	t_stack	*tmp;
 
 	tmp = stack;
 	while (tmp->next != NULL)
@@ -39,7 +39,7 @@ void stack_add_back(t_stack *stack, t_stack *new)
 
 int stack_len(t_stack *stack)
 {
-	int    len;
+	int	len;
 
 	len = 0;
 	while (stack)

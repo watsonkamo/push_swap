@@ -6,15 +6,15 @@
 /*   By: emma <emma@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 18:21:40 by emma              #+#    #+#             */
-/*   Updated: 2024/04/22 18:35:23 by emma             ###   ########.fr       */
+/*   Updated: 2024/04/22 18:54:47 by emma             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_data *data_init(void)
+t_data	*data_init(void)
 {
-	t_data    *data;
+	t_data	*data;
 
 	data = (t_data *)malloc(sizeof(t_data));
 	if (!data)
@@ -24,9 +24,9 @@ t_data *data_init(void)
 	return (data);
 }
 
-void free_data(t_data *data)
+void	free_data(t_data *data)
 {
-	t_stack    *tmp;
+	t_stack	*tmp;
 
 	while (data->a)
 	{

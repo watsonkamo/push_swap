@@ -6,13 +6,13 @@
 /*   By: emma <emma@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 18:12:21 by emma              #+#    #+#             */
-/*   Updated: 2024/04/22 18:42:06 by emma             ###   ########.fr       */
+/*   Updated: 2024/04/22 18:55:28 by emma             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void send_to_b(t_data *data, int min, int pivot)
+static void	send_to_b(t_data *data, int min, int pivot)
 {
 	int		i;
 	int		len;
@@ -20,7 +20,7 @@ static void send_to_b(t_data *data, int min, int pivot)
 	t_stack	*tmp;
 
 	i = 0;
-    average = (pivot + min) / 2;
+	average = (pivot + min) / 2;
 	len = stack_len(data->a);
 	while (i < len)
 	{
@@ -37,7 +37,7 @@ static void send_to_b(t_data *data, int min, int pivot)
 	}
 }
 
-static void send_to_b_all(t_data *data)
+static void	send_to_b_all(t_data *data)
 {
 	int	i;
 	int	len;
@@ -51,7 +51,7 @@ static void send_to_b_all(t_data *data)
 	}
 }
 
-static bool is_above_the_center(t_stack *stack, int num)
+static bool	is_above_the_center(t_stack *stack, int num)
 {
 	t_stack	*tmp;
 	t_stack	*tmp2;
@@ -72,7 +72,7 @@ static bool is_above_the_center(t_stack *stack, int num)
 	return (false);
 }
 
-void sort_large(t_data *data)
+void	sort_large(t_data *data)
 {
 	int	pivot;
 	int	min;

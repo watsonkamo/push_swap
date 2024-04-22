@@ -6,13 +6,13 @@
 /*   By: emma <emma@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 18:49:35 by eshintan          #+#    #+#             */
-/*   Updated: 2024/04/22 18:24:29 by emma             ###   ########.fr       */
+/*   Updated: 2024/04/22 18:51:40 by emma             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int error_exit(t_data *data)
+int	error_exit(t_data *data)
 {
 	free_data(data);
 	ft_putendl_fd("Error", 2);

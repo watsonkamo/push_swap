@@ -6,7 +6,7 @@
 /*   By: emma <emma@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 18:43:32 by eshintan          #+#    #+#             */
-/*   Updated: 2024/04/22 18:27:55 by emma             ###   ########.fr       */
+/*   Updated: 2024/04/22 18:58:29 by emma             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ long	ft_atol(const char *str)
 	return (num * sign);
 }
 
-void ft_putendl_fd(char *s, int fd)
+void	ft_putendl_fd(char *s, int fd)
 {
 	int	i;
 
@@ -56,7 +56,7 @@ void ft_putendl_fd(char *s, int fd)
 	write(fd, "\n", 1);
 }
 
-size_t ft_strlen(const char *s)
+size_t	ft_strlen(const char *s)
 {
 	size_t	i;
 

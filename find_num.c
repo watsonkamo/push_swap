@@ -6,13 +6,13 @@
 /*   By: emma <emma@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 18:48:48 by eshintan          #+#    #+#             */
-/*   Updated: 2024/04/22 18:36:26 by emma             ###   ########.fr       */
+/*   Updated: 2024/04/22 18:54:06 by emma             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int find_min(t_stack *stack)
+int	find_min(t_stack *stack)
 {
 	int		min;
 	t_stack	*temp;
@@ -33,7 +33,7 @@ int find_min(t_stack *stack)
 	return (min);
 }
 
-int find_max(t_stack *stack)
+int	find_max(t_stack *stack)
 {
 	int		max;
 	t_stack	*temp;

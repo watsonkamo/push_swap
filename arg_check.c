@@ -6,13 +6,13 @@
 /*   By: emma <emma@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 18:22:44 by emma              #+#    #+#             */
-/*   Updated: 2024/04/22 18:26:11 by emma             ###   ########.fr       */
+/*   Updated: 2024/04/22 18:54:59 by emma             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int arg_invalid(int argc, char **argv)
+int	arg_invalid(int argc, char **argv)
 {
 	int	i;
 	int	j;
@@ -37,7 +37,7 @@ int arg_invalid(int argc, char **argv)
 	return (0);
 }
 
-int check_duplicate(t_data *data)
+int	check_duplicate(t_data *data)
 {
 	t_stack	*tmp;
 	t_stack	*tmp2;
@@ -57,9 +57,9 @@ int check_duplicate(t_data *data)
 	return (0);
 }
 
-int is_sorted(t_data *data)
+int	is_sorted(t_data *data)
 {
-	t_stack    *tmp;
+	t_stack	*tmp;
 
 	tmp = data->a;
 	while (tmp->next)

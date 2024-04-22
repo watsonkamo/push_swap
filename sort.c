@@ -6,13 +6,13 @@
 /*   By: emma <emma@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 18:13:36 by emma              #+#    #+#             */
-/*   Updated: 2024/04/22 18:28:17 by emma             ###   ########.fr       */
+/*   Updated: 2024/04/22 18:51:46 by emma             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void sort(t_data *data)
+void	sort(t_data *data)
 {
 	int	len;
 

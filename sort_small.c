@@ -6,18 +6,18 @@
 /*   By: emma <emma@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 18:49:01 by eshintan          #+#    #+#             */
-/*   Updated: 2024/04/22 18:30:42 by emma             ###   ########.fr       */
+/*   Updated: 2024/04/22 18:55:34 by emma             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void sort_2(t_data *data)
+void	sort_2(t_data *data)
 {
 	sa(data);
 }
 
-void sort_3(t_data *data)
+void	sort_3(t_data *data)
 {
 	int	a;
 	int	b;
@@ -37,12 +37,12 @@ void sort_3(t_data *data)
 		sa(data);
 		if (a < c && c < b)
 			ra(data);
-		else if(c < b && b < a)
+		else if (c < b && b < a)
 			rra(data);
 	}
 }
 
-void sort_4(t_data *data)
+void	sort_4(t_data *data)
 {
 	t_stack	*tmp;
 	int		min;
@@ -59,7 +59,7 @@ void sort_4(t_data *data)
 	pa(data);
 }
 
-void sort_5(t_data *data)
+void	sort_5(t_data *data)
 {
 	int	min;
 

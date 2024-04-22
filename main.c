@@ -6,13 +6,13 @@
 /*   By: emma <emma@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 18:45:58 by eshintan          #+#    #+#             */
-/*   Updated: 2024/04/22 18:37:19 by emma             ###   ########.fr       */
+/*   Updated: 2024/04/22 18:53:46 by emma             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void put_data(t_data *data, int argc, char **argv)
+static void	put_data(t_data *data, int argc, char **argv)
 {
 	int		i;
 	long	num;
@@ -34,7 +34,7 @@ static void put_data(t_data *data, int argc, char **argv)
 	}
 }
 
-static void compress_num(t_data *data)
+static void	compress_num(t_data *data)
 {
 	t_stack	*tmp;
 	t_stack	*tmp2;
@@ -53,7 +53,7 @@ static void compress_num(t_data *data)
 	}
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	t_data	*data;
 

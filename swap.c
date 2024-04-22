@@ -6,13 +6,13 @@
 /*   By: emma <emma@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 18:49:17 by eshintan          #+#    #+#             */
-/*   Updated: 2024/04/22 18:07:40 by emma             ###   ########.fr       */
+/*   Updated: 2024/04/22 18:51:35 by emma             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    format_data(t_data *data)
+void	format_data(t_data *data)
 {
 	if (data == NULL)
 		return ;
@@ -24,49 +24,49 @@ void    format_data(t_data *data)
 			data->b = data->b->prev;
 }
 
-void sa(t_data *data)
+void	sa(t_data *data)
 {
-	t_stack *stackA;
-	t_stack *tmp;
+	t_stack	*stack_a;
+	t_stack	*tmp;
 
-	stackA = data->a;
-	if (stackA == NULL)
+	stack_a = data->a;
+	if (stack_a == NULL)
 		return ;
-	if (stack_len((stackA)) < 2)
+	if (stack_len(stack_a) < 2)
 		return ;
-	tmp = stackA->next;
-	stackA->next = tmp->next;
-	tmp->next = stackA;
+	tmp = stack_a->next;
+	stack_a->next = tmp->next;
+	tmp->next = stack_a;
 	tmp->prev = NULL;
-	stackA->prev = tmp;
+	stack_a->prev = tmp;
 	if (tmp->next != NULL)
 		tmp->next->prev = tmp;
 	format_data(data);
 	ft_putendl_fd("sa", 1);
 }
 
-void sb(t_data *data)
+void	sb(t_data *data)
 {
-	t_stack *stackB;
-	t_stack *tmp;
+	t_stack	*stack_b;
+	t_stack	*tmp;
 
-	stackB = data->b;
-	if (stackB == NULL)
+	stack_b = data->b;
+	if (stack_b == NULL)
 		return ;
-	if (stack_len((stackB)) < 2)
+	if (stack_len(stack_b) < 2)
 		return ;
-	tmp = stackB->next;
-	stackB->next = tmp->next;
-	tmp->next = stackB;
+	tmp = stack_b->next;
+	stack_b->next = tmp->next;
+	tmp->next = stack_b;
 	tmp->prev = NULL;
-	stackB->prev = tmp;
+	stack_b->prev = tmp;
 	if (tmp->next != NULL)
 		tmp->next->prev = tmp;
 	format_data(data);
 	ft_putendl_fd("sb", 1);
 }
 
-void ss(t_data *data)
+void	ss(t_data *data)
 {
 	sa(data);
 	sb(data);
