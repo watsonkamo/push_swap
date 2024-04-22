@@ -1,30 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort.c                                             :+:      :+:    :+:   */
+/*   data_struct.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emma <emma@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/22 18:13:36 by emma              #+#    #+#             */
-/*   Updated: 2024/04/22 18:28:17 by emma             ###   ########.fr       */
+/*   Created: 2024/04/22 18:21:40 by emma              #+#    #+#             */
+/*   Updated: 2024/04/22 18:35:23 by emma             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void sort(t_data *data)
+t_data *data_init(void)
 {
-	int	len;
+	t_data    *data;
 
-	len = stack_len(data->a);
-	if (len == 2)
-		sort_2(data);
-	else if (len == 3)
-		sort_3(data);
-	else if (len == 4)
-		sort_4(data);
-	else if (len == 5)
-		sort_5(data);
-	else
-		sort_large(data);
+	data = (t_data *)malloc(sizeof(t_data));
+	if (!data)
+		exit(1);
+	data->a = NULL;
+	data->b = NULL;
+	return (data);
+}
+
+void free_data(t_data *data)
+{
+	t_stack    *tmp;
+
+	while (data->a)
+	{
+		tmp = data->a->next;
+		free(data->a);
+		data->a = tmp;
+	}
+	while (data->b)
+	{
+		tmp = data->b->next;
+		free(data->b);
+		data->b = tmp;
+	}
+	free(data);
 }

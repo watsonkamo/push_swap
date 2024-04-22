@@ -6,118 +6,16 @@
 /*   By: emma <emma@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 18:45:58 by eshintan          #+#    #+#             */
-/*   Updated: 2024/04/22 17:59:55 by emma             ###   ########.fr       */
+/*   Updated: 2024/04/22 18:37:19 by emma             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_data *data_init(void)
+static void put_data(t_data *data, int argc, char **argv)
 {
-	t_data    *data;
-
-	data = (t_data *)malloc(sizeof(t_data));
-	if (!data)
-		exit(1);
-	data->a = NULL;
-	data->b = NULL;
-	return (data);
-}
-
-int arg_invalid(int argc, char **argv)
-{
-	int    i;
-	int    j;
-
-	i = 1;
-	while (i < argc)
-	{
-		j = 0;
-		if (ft_strlen(argv[i]) > 11)
-			return (1);
-		while (argv[i][j])
-		{
-			if (argv[i][j] == '-' || argv[i][j] == '+')
-				if (j != 0 || argv[i][j + 1] == '\0')
-					return (1);
-			if (!ft_isdigit(argv[i][j]) && argv[i][j] != '-' && argv[i][j] != '+')
-				return (1);
-			j++;
-		}
-		i++;
-	}
-	return (0);
-}
-
-void free_data(t_data *data)
-{
-	t_stack    *tmp;
-
-	while (data->a)
-	{
-		tmp = data->a->next;
-		free(data->a);
-		data->a = tmp;
-	}
-	while (data->b)
-	{
-		tmp = data->b->next;
-		free(data->b);
-		data->b = tmp;
-	}
-	free(data);
-}
-
-t_stack *stack_new(int num)
-{
-	t_stack    *new;
-
-	new = (t_stack *)malloc(sizeof(t_stack));
-	if (!new)
-		exit(1);
-	new->next = NULL;
-	new->prev = NULL;
-	new->origin_num = num;
-	new->compress_num = 0;
-	return (new);
-}
-
-void stack_add_back(t_stack *stack, t_stack *new)
-{
-	t_stack    *tmp;
-
-	tmp = stack;
-	while (tmp->next != NULL)
-		tmp = tmp->next;
-	tmp->next = new;
-	new->prev = tmp;
-}
-
-int stack_len(t_stack *stack)
-{
-	int    len;
-
-	len = 0;
-	while (stack)
-	{
-		len++;
-		stack = stack->next;
-	}
-	return (len);
-}
-
-int error_exit(t_data *data)
-{
-	free_data(data);
-	ft_putendl_fd("Error", 2);
-	return (1);
-}
-
-
-void put_data(t_data *data, int argc, char **argv)
-{
-	int    i;
-	long    num;
+	int		i;
+	long	num;
 
 	i = 1;
 	while (i < argc)
@@ -136,10 +34,10 @@ void put_data(t_data *data, int argc, char **argv)
 	}
 }
 
-void compress_num(t_data *data)
+static void compress_num(t_data *data)
 {
-	t_stack    *tmp;
-	t_stack    *tmp2;
+	t_stack	*tmp;
+	t_stack	*tmp2;
 
 	tmp = data->a;
 	while (tmp)
@@ -155,43 +53,10 @@ void compress_num(t_data *data)
 	}
 }
 
-int is_sorted(t_data *data)
-{
-	t_stack    *tmp;
-
-	tmp = data->a;
-	while (tmp->next)
-	{
-		if (tmp->origin_num > tmp->next->origin_num)
-			return (0);
-		tmp = tmp->next;
-	}
-	return (1);
-}
-
-int check_duplicate(t_data *data)
-{
-	t_stack    *tmp;
-	t_stack    *tmp2;
-
-	tmp = data->a;
-	while (tmp)
-	{
-		tmp2 = tmp->next;
-		while (tmp2)
-		{
-			if (tmp->origin_num == tmp2->origin_num)
-				return (1);
-			tmp2 = tmp2->next;
-		}
-		tmp = tmp->next;
-	}
-	return (0);
-}
-
 int main(int argc, char **argv)
 {
-	t_data    *data;
+	t_data	*data;
+
 	if (argc < 2)
 		return (0);
 	data = data_init();

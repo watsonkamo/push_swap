@@ -6,7 +6,7 @@
 /*   By: emma <emma@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 18:47:58 by eshintan          #+#    #+#             */
-/*   Updated: 2024/04/22 18:20:11 by emma             ###   ########.fr       */
+/*   Updated: 2024/04/22 18:27:32 by emma             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void pa(t_data *data)
 {
-	t_stack *top_b;
+	t_stack	*top_b;
 
 	top_b = data->b;
 	if (data->b == NULL)
@@ -32,7 +32,7 @@ void pa(t_data *data)
 
 void pb(t_data *data)
 {
-	t_stack *top_a;
+	t_stack	*top_a;
 
 	top_a = data->a;
 	if (data->a == NULL)

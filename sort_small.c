@@ -6,7 +6,7 @@
 /*   By: emma <emma@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 18:49:01 by eshintan          #+#    #+#             */
-/*   Updated: 2024/04/22 18:13:33 by emma             ###   ########.fr       */
+/*   Updated: 2024/04/22 18:30:42 by emma             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,37 +19,33 @@ void sort_2(t_data *data)
 
 void sort_3(t_data *data)
 {
-	int    a;
-	int    b;
-	int    c;
+	int	a;
+	int	b;
+	int	c;
 
 	a = data->a->compress_num;
 	b = data->a->next->compress_num;
 	c = data->a->next->next->compress_num;
 	if (a < b && b < c)
 		return ;
-	else if (a < c && c < b)
-	{
-		sa(data);
-		ra(data);
-	}
-	else if (b < a && a < c)
-		sa(data);
 	else if (b < c && c < a)
 		ra(data);
 	else if (c < a && a < b)
 		rra(data);
-	else if(c < b && b < a)
+	else
 	{
 		sa(data);
-		rra(data);
+		if (a < c && c < b)
+			ra(data);
+		else if(c < b && b < a)
+			rra(data);
 	}
 }
 
 void sort_4(t_data *data)
 {
-	t_stack *tmp;
-	int min;
+	t_stack	*tmp;
+	int		min;
 
 	tmp = data->a;
 	min = find_min(tmp);
@@ -65,7 +61,7 @@ void sort_4(t_data *data)
 
 void sort_5(t_data *data)
 {
-	int    min;
+	int	min;
 
 	min = find_min(data->a);
 	if (data->a->compress_num == min)

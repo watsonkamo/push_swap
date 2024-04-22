@@ -6,18 +6,18 @@
 /*   By: emma <emma@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 18:12:21 by emma              #+#    #+#             */
-/*   Updated: 2024/04/22 18:14:47 by emma             ###   ########.fr       */
+/*   Updated: 2024/04/22 18:42:06 by emma             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void send_to_b(t_data *data, int min, int pivot)
+static void send_to_b(t_data *data, int min, int pivot)
 {
-	int i;
-	int len;
-	int average;
-	t_stack *tmp;
+	int		i;
+	int		len;
+	int		average;
+	t_stack	*tmp;
 
 	i = 0;
     average = (pivot + min) / 2;
@@ -37,10 +37,10 @@ void send_to_b(t_data *data, int min, int pivot)
 	}
 }
 
-void send_to_b_all(t_data *data)
+static void send_to_b_all(t_data *data)
 {
-	int i;
-	int len;
+	int	i;
+	int	len;
 
 	i = 0;
 	len = stack_len(data->a);
@@ -51,11 +51,13 @@ void send_to_b_all(t_data *data)
 	}
 }
 
-bool is_above_the_center(t_stack *stack, int num)
+static bool is_above_the_center(t_stack *stack, int num)
 {
-	t_stack *tmp = stack;
-	t_stack *tmp2 = stack;
+	t_stack	*tmp;
+	t_stack	*tmp2;
 
+	tmp = stack;
+	tmp2 = stack;
 	while (tmp2->next != NULL)
 		tmp2 = tmp2->next;
 	while (tmp->next != NULL)
@@ -70,18 +72,18 @@ bool is_above_the_center(t_stack *stack, int num)
 	return (false);
 }
 
-# define division 8
-
 void sort_large(t_data *data)
 {
-	int	pivot = -1;
-	int min;
+	int	pivot;
+	int	min;
+	int	i;
 
-	int i = 1;
-	while (i < division)
+	i = 1;
+	pivot = -1;
+	while (i < DIVISION)
 	{
 		min = pivot + 1;
-		pivot = find_max(data->a) / division * i;
+		pivot = find_max(data->a) / DIVISION * i;
 		send_to_b(data, min, pivot);
 		i++;
 	}
@@ -96,4 +98,3 @@ void sort_large(t_data *data)
 			rrb(data);
 	}
 }
-

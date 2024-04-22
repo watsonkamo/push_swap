@@ -6,7 +6,7 @@
 /*   By: emma <emma@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 18:43:32 by eshintan          #+#    #+#             */
-/*   Updated: 2024/04/22 17:55:40 by emma             ###   ########.fr       */
+/*   Updated: 2024/04/22 18:27:55 by emma             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ int	ft_isdigit(int c)
 
 long	ft_atol(const char *str)
 {
-	int	i;
-	int	sign;
+	int		i;
+	int		sign;
 	long	num;
 
 	i = 0;
@@ -45,7 +45,7 @@ long	ft_atol(const char *str)
 
 void ft_putendl_fd(char *s, int fd)
 {
-	int    i;
+	int	i;
 
 	i = 0;
 	while (s[i])
@@ -58,7 +58,7 @@ void ft_putendl_fd(char *s, int fd)
 
 size_t ft_strlen(const char *s)
 {
-	size_t    i;
+	size_t	i;
 
 	i = 0;
 	while (s[i])
