@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rev_rotate.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eshintan <eshintan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: emma <emma@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 18:48:07 by eshintan          #+#    #+#             */
-/*   Updated: 2024/04/18 18:48:17 by eshintan         ###   ########.fr       */
+/*   Updated: 2024/04/22 18:20:01 by emma             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,18 +20,18 @@ void rra(t_data *data)
 	last = data->a;
 	prev = NULL;
 	if (data->a == NULL || data->a->next == NULL)
-		return;
+		return ;
 	while (last->next != NULL)
 	{
 		prev = last;
 		last = last->next;
 	}
-	prev->next = NULL; // 新しい最後のノードのnextをNULLに設定
-	last->next = data->a; // 元々の最後のノード（新しい最初のノード）のnextを元々の最初のノードに設定
-	data->a->prev = last; // 元々の最初のノード（新しい最後のノード）のprevを元々の最後のノード（新しい最初のノード）に設定
-	last->prev = NULL; // 新しい最初のノードのprevをNULLに設定
-	data->a = last; // 最初のノードを更新
-	printf("rra\n");
+	prev->next = NULL;
+	last->next = data->a;
+	data->a->prev = last;
+	last->prev = NULL;
+	data->a = last;
+	ft_putendl_fd("rra", 1);
 }
 
 void rrb(t_data *data)
@@ -42,7 +42,7 @@ void rrb(t_data *data)
 	last = data->b;
 	prev = NULL;
 	if (data->b == NULL || data->b->next == NULL)
-		return;
+		return ;
 	while (last->next != NULL)
 	{
 		prev = last;
@@ -53,12 +53,12 @@ void rrb(t_data *data)
 	data->b->prev = last;
 	last->prev = NULL;
 	data->b = last;
-	printf("rrb\n");
+	ft_putendl_fd("rrb", 1);
 }
 
 void rrr(t_data *data)
 {
 	rra(data);
 	rrb(data);
-	printf("rrr\n");
+	ft_putendl_fd("rrr", 1);
 }

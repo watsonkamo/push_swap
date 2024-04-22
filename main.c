@@ -6,7 +6,7 @@
 /*   By: emma <emma@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 18:45:58 by eshintan          #+#    #+#             */
-/*   Updated: 2024/04/22 17:56:57 by emma             ###   ########.fr       */
+/*   Updated: 2024/04/22 17:59:55 by emma             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ t_data *data_init(void)
 	data->b = NULL;
 	return (data);
 }
-
 
 int arg_invalid(int argc, char **argv)
 {
@@ -195,18 +194,15 @@ int main(int argc, char **argv)
 	t_data    *data;
 	if (argc < 2)
 		return (0);
-	data = data_init();// malloc struct and put NULL to a and b 
-	if (arg_invalid(argc, argv))// 数値以外が含まれている場合はエラー
-		return (error_exit(data)); // error は終了ステータスを1にする
-	put_data(data, argc, argv);// put data to a
-	compress_num(data); // compress number
-	if (check_duplicate(data)) // ./push_swap "1 1 2" とかはエラー
-		return (error_exit(data)); // error は終了ステータスを1にする
-	if (is_sorted(data)) // すでにソートされている場合は何もしない
-	{
-		free_data(data);
-		return (0);
-	}
+	data = data_init();
+	if (arg_invalid(argc, argv))
+		return (error_exit(data));
+	put_data(data, argc, argv);
+	compress_num(data);
+	if (check_duplicate(data))
+		return (error_exit(data));
+	if (is_sorted(data))
+		return (free_data(data), 0);
 	sort(data);
 	free_data(data);
 	return (0);

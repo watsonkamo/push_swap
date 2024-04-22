@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eshintan <eshintan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: emma <emma@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 18:47:58 by eshintan          #+#    #+#             */
-/*   Updated: 2024/04/18 18:47:59 by eshintan         ###   ########.fr       */
+/*   Updated: 2024/04/22 18:20:11 by emma             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,16 @@ void pa(t_data *data)
 
 	top_b = data->b;
 	if (data->b == NULL)
-		return;
-// スタックBから一番上の要素を削除
+		return ;
 	data->b = data->b->next;
 	if (data->b != NULL)
 		data->b->prev = NULL;
-// スタックAの一番上に元々スタックBの一番上だった要素を追加
 	top_b->next = data->a;
 	top_b->prev = NULL;
 	if (data->a != NULL)
 		data->a->prev = top_b;
 	data->a = top_b;
-	printf("pa\n");
+	ft_putendl_fd("pa", 1);
 }
 
 void pb(t_data *data)
@@ -38,7 +36,7 @@ void pb(t_data *data)
 
 	top_a = data->a;
 	if (data->a == NULL)
-		return;
+		return ;
 	data->a = data->a->next;
 	if (data->a != NULL)
 		data->a->prev = NULL;
@@ -47,5 +45,5 @@ void pb(t_data *data)
 	if (data->b != NULL)
 		data->b->prev = top_a;
 	data->b = top_a;
-	printf("pb\n");
+	ft_putendl_fd("pb", 1);
 }

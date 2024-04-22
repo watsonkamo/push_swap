@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eshintan <eshintan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: emma <emma@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 18:49:17 by eshintan          #+#    #+#             */
-/*   Updated: 2024/04/18 18:49:27 by eshintan         ###   ########.fr       */
+/*   Updated: 2024/04/22 18:07:40 by emma             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void sa(t_data *data)
 	if (tmp->next != NULL)
 		tmp->next->prev = tmp;
 	format_data(data);
-	printf("sa\n");
+	ft_putendl_fd("sa", 1);
 }
 
 void sb(t_data *data)
@@ -63,12 +63,12 @@ void sb(t_data *data)
 	if (tmp->next != NULL)
 		tmp->next->prev = tmp;
 	format_data(data);
-	printf("sb\n");
+	ft_putendl_fd("sb", 1);
 }
 
 void ss(t_data *data)
 {
 	sa(data);
 	sb(data);
-	printf("ss\n");
+	ft_putendl_fd("ss", 1);
 }
