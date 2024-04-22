@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eshintan <eshintan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: emma <emma@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 18:45:58 by eshintan          #+#    #+#             */
-/*   Updated: 2024/04/18 18:45:59 by eshintan         ###   ########.fr       */
+/*   Updated: 2024/04/22 17:41:49 by emma             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,12 @@ int arg_invalid(int argc, char **argv)
 	while (i < argc)
 	{
 		j = 0;
+		if (ft_strlen(argv[i]) > 11)
+			return (1);
 		while (argv[i][j])
 		{
 			if (argv[i][j] == '-' || argv[i][j] == '+')
-				if (j != 0)
+				if (j != 0 || argv[i][j + 1] == '\0')
 					return (1);
 			if (!ft_isdigit(argv[i][j]) && argv[i][j] != '-' && argv[i][j] != '+')
 				return (1);
@@ -136,12 +138,17 @@ int error_exit(t_data *data)
 void put_data(t_data *data, int argc, char **argv)
 {
 	int    i;
-	int    num;
+	long    num;
 
 	i = 1;
 	while (i < argc)
 	{
-		num = ft_atoi(argv[i]);
+		num = ft_atol(argv[i]);
+		if (num > INT_MAX || num < INT_MIN)
+		{
+			ft_putendl_fd("Error", 2);
+			exit(1);
+		}
 		if (data->a == NULL)
 			data->a = stack_new(num);
 		else
@@ -213,13 +220,13 @@ int main(int argc, char **argv)
 		return (error_exit(data)); // error は終了ステータスを1にする
 	put_data(data, argc, argv);// put data to a
 	compress_num(data); // compress number
+	if (check_duplicate(data)) // ./push_swap "1 1 2" とかはエラー
+		return (error_exit(data)); // error は終了ステータスを1にする
 	if (is_sorted(data)) // すでにソートされている場合は何もしない
 	{
 		free_data(data);
 		return (0);
 	}
-	if (check_duplicate(data)) // ./push_swap "1 1 2" とかはエラー
-		return (error_exit(data)); // error は終了ステータスを1にする
 	//printf("---start_sort---\n");
 	//check_stack(data);
 	sort(data);

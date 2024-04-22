@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eshintan <eshintan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: emma <emma@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 18:45:21 by eshintan          #+#    #+#             */
-/*   Updated: 2024/04/18 18:47:01 by eshintan         ###   ########.fr       */
+/*   Updated: 2024/04/22 17:42:17 by emma             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@
 # include <libc.h>
 
 int	ft_isdigit(int c);
-int	ft_atoi(const char *str);
+long	ft_atol(const char *str);
 void	ft_putendl_fd(char *s, int fd);
+size_t ft_strlen(const char *s);
 
 #endif
