@@ -2,3 +2,4 @@ push_swap_tester/
 .DS*
 *.o
 push_swap
+.vscode/
